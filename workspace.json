@@ -195,6 +195,63 @@
           }
         }
       }
+    },
+    "policeone-scraper": {
+      "root": "apps/policeone-scraper",
+      "sourceRoot": "apps/policeone-scraper/src",
+      "projectType": "application",
+      "prefix": "policeone-scraper",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/policeone-scraper",
+            "main": "apps/policeone-scraper/src/main.ts",
+            "tsConfig": "apps/policeone-scraper/tsconfig.app.json",
+            "assets": ["apps/policeone-scraper/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/policeone-scraper/src/environments/environment.ts",
+                  "with": "apps/policeone-scraper/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "policeone-scraper:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/policeone-scraper/.eslintrc",
+            "tsConfig": [
+              "apps/policeone-scraper/tsconfig.app.json",
+              "apps/policeone-scraper/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/policeone-scraper/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/policeone-scraper/jest.config.js",
+            "tsConfig": "apps/policeone-scraper/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
