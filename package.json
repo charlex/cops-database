@@ -29,9 +29,15 @@
   "dependencies": {
     "@emotion/core": "10.0.27",
     "@emotion/styled": "10.0.27",
+    "@types/airtable": "^0.8.0",
+    "@types/chalk": "^2.2.0",
+    "@types/lodash": "^4.14.155",
     "@types/puppeteer": "^3.0.0",
+    "airtable": "^0.8.1",
+    "chalk": "^4.0.0",
     "document-register-element": "1.13.1",
     "express": "4.17.1",
+    "lodash": "^4.17.15",
     "puppeteer": "^3.3.0",
     "react": "16.12.0",
     "react-dom": "16.12.0"
