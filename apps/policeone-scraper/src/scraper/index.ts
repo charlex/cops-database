@@ -22,12 +22,14 @@ type AirtableRecord_Agency = {
 };
 
 const scraper = async () => {
+  console.log(chalk.green.underline('starting scraper...'));
+
   try {
     await base('officers').find('recMm1CXH3D55YQrI');
   } catch (e) {
     console.error(
       chalk.red(
-        'Could not connect to officers table in Airtable:',
+        'failed to find test record in officers airtable:',
         e.message,
         e.stack
       )
@@ -35,7 +37,6 @@ const scraper = async () => {
     process.exit(1);
   }
 
-  console.log(chalk.green.underline('starting scraper...'));
   const browser = await puppeteer.launch({});
   const page = await browser.newPage();
   await page.setExtraHTTPHeaders({
@@ -44,7 +45,7 @@ const scraper = async () => {
 
   const getDataFromPage = async (pageNumber: number) => {
     console.log(chalk.green.underline('opening page...'), pageNumber);
-    await sleep(0.5);
+    await sleep(1);
     await page.goto(
       `https://www.policeone.com/law-enforcement-directory/search/page-${pageNumber}`,
       { waitUntil: 'domcontentloaded' }
@@ -52,7 +53,7 @@ const scraper = async () => {
     console.log(chalk.green.underline('pulling data...'), pageNumber);
     const rows = await page.$$('.Table-row:not([data-load-more-target])');
 
-    const data = await rows.reduce<Promise<AirtableRecord[]>>(
+    const data = await rows.reduce<Promise<AirtableRecord_Agency[]>>(
       async (acc, row) => {
         const prev = await acc;
         const getTextFrom = async (
