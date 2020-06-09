@@ -1,10 +1,32 @@
 # CopsDatabase
 
-## Run the policeone-scraper
+## About
+
+Scraper to collect data for populating agencies in:
+
+https://airtable.com/shr2wmgGksh7qUjB9
+
+See the officers here:
+
+https://airtable.com/shrTfx4vluaEhtpw6/tblVYBxJyu2osenUA
+
+Access the full database here (password protected):
+
+https://airtable.com/shrYDa8KeEWwMB10r
+
+## Local agencies
+
+Used to get a list of agencies from policeone.com
+
+### Run the policeone-scraper
 
 ```
 yarn scrape
 ```
+
+## Federal agencies
+
+https://airtable.com/shrpCA8K38SDtUdOM/tblm97YNDelOjeZzb
 
 ## Boilerplate
 
