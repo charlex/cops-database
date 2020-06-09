@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('bad-cop-list', () => {
+describe('cops-database', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('bad-cop-list', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to bad-cop-list!');
+    getGreeting().contains('Welcome to cops-database!');
   });
 });

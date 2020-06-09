@@ -1,14 +1,13 @@
 import * as puppeteer from 'puppeteer';
 import * as chalk from 'chalk';
-import { sleep } from '@bad-cop-list/utils';
-
-// import { appendFileSync } from 'fs';
+import { sleep } from '@cops-database/utils';
 
 import * as Airtable from 'airtable';
 
 import { chunk } from 'lodash';
+import * as config from 'config';
 
-const base = new Airtable({ apiKey: 'key4w0UtM9WHHEZIs' }).base(
+const base = new Airtable({ apiKey: config.get('airtable.secretToken') }).base(
   'appH0D66qIF4fVMtu'
 );
 
@@ -23,6 +22,19 @@ type AirtableRecord = {
 };
 
 const scraper = async () => {
+  try {
+    await base('officers').find('recMm1CXH3D55YQrI');
+  } catch (e) {
+    console.error(
+      chalk.red(
+        'Could not connect to officers table in Airtable:',
+        e.message,
+        e.stack
+      )
+    );
+    process.exit(1);
+  }
+
   console.log(chalk.green.underline('starting scraper...'));
   const browser = await puppeteer.launch({});
   const page = await browser.newPage();

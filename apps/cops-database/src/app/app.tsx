@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Message } from '@bad-cop-list/api-interfaces';
+import { Message } from '@cops-database/api-interfaces';
 
 export const App = () => {
   const [m, setMessage] = useState<Message>({ message: '' });
@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to bad-cop-list!</h1>
+        <h1>Welcome to cops-database!</h1>
         <img
           width="450"
           src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"

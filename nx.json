@@ -1,5 +1,5 @@
 {
-  "npmScope": "bad-cop-list",
+  "npmScope": "cops-database",
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
@@ -19,12 +19,12 @@
     }
   },
   "projects": {
-    "bad-cop-list": {
+    "cops-database": {
       "tags": []
     },
-    "bad-cop-list-e2e": {
+    "cops-database-e2e": {
       "tags": [],
-      "implicitDependencies": ["bad-cop-list"]
+      "implicitDependencies": ["cops-database"]
     },
     "api": {
       "tags": []

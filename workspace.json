@@ -1,23 +1,23 @@
 {
   "version": 1,
   "projects": {
-    "bad-cop-list": {
-      "root": "apps/bad-cop-list",
-      "sourceRoot": "apps/bad-cop-list/src",
+    "cops-database": {
+      "root": "apps/cops-database",
+      "sourceRoot": "apps/cops-database/src",
       "projectType": "application",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/web:build",
           "options": {
-            "outputPath": "dist/apps/bad-cop-list",
-            "index": "apps/bad-cop-list/src/index.html",
-            "main": "apps/bad-cop-list/src/main.tsx",
-            "polyfills": "apps/bad-cop-list/src/polyfills.ts",
-            "tsConfig": "apps/bad-cop-list/tsconfig.app.json",
+            "outputPath": "dist/apps/cops-database",
+            "index": "apps/cops-database/src/index.html",
+            "main": "apps/cops-database/src/main.tsx",
+            "polyfills": "apps/cops-database/src/polyfills.ts",
+            "tsConfig": "apps/cops-database/tsconfig.app.json",
             "assets": [
-              "apps/bad-cop-list/src/favicon.ico",
-              "apps/bad-cop-list/src/assets"
+              "apps/cops-database/src/favicon.ico",
+              "apps/cops-database/src/assets"
             ],
             "styles": [],
             "scripts": [],
@@ -27,8 +27,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/bad-cop-list/src/environments/environment.ts",
-                  "with": "apps/bad-cop-list/src/environments/environment.prod.ts"
+                  "replace": "apps/cops-database/src/environments/environment.ts",
+                  "with": "apps/cops-database/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -51,12 +51,12 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "bad-cop-list:build",
-            "proxyConfig": "apps/bad-cop-list/proxy.conf.json"
+            "buildTarget": "cops-database:build",
+            "proxyConfig": "apps/cops-database/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "buildTarget": "bad-cop-list:build:production"
+              "buildTarget": "cops-database:build:production"
             }
           }
         },
@@ -64,39 +64,39 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "apps/bad-cop-list/.eslintrc",
+            "config": "apps/cops-database/.eslintrc",
             "tsConfig": [
-              "apps/bad-cop-list/tsconfig.app.json",
-              "apps/bad-cop-list/tsconfig.spec.json"
+              "apps/cops-database/tsconfig.app.json",
+              "apps/cops-database/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/bad-cop-list/**"]
+            "exclude": ["**/node_modules/**", "!apps/cops-database/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/bad-cop-list/jest.config.js",
-            "tsConfig": "apps/bad-cop-list/tsconfig.spec.json",
+            "jestConfig": "apps/cops-database/jest.config.js",
+            "tsConfig": "apps/cops-database/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
       }
     },
-    "bad-cop-list-e2e": {
-      "root": "apps/bad-cop-list-e2e",
-      "sourceRoot": "apps/bad-cop-list-e2e/src",
+    "cops-database-e2e": {
+      "root": "apps/cops-database-e2e",
+      "sourceRoot": "apps/cops-database-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/bad-cop-list-e2e/cypress.json",
-            "tsConfig": "apps/bad-cop-list-e2e/tsconfig.e2e.json",
-            "devServerTarget": "bad-cop-list:serve"
+            "cypressConfig": "apps/cops-database-e2e/cypress.json",
+            "tsConfig": "apps/cops-database-e2e/tsconfig.e2e.json",
+            "devServerTarget": "cops-database:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bad-cop-list:serve:production"
+              "devServerTarget": "cops-database:serve:production"
             }
           }
         },
@@ -104,9 +104,9 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "apps/bad-cop-list-e2e/.eslintrc",
-            "tsConfig": ["apps/bad-cop-list-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/bad-cop-list-e2e/**"]
+            "config": "apps/cops-database-e2e/.eslintrc",
+            "tsConfig": ["apps/cops-database-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/cops-database-e2e/**"]
           }
         }
       }
@@ -350,5 +350,5 @@
       }
     }
   },
-  "defaultProject": "bad-cop-list"
+  "defaultProject": "cops-database"
 }

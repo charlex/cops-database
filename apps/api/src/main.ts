@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { Message } from '@bad-cop-list/api-interfaces';
+import { Message } from '@cops-database/api-interfaces';
 
 const app = express();
 

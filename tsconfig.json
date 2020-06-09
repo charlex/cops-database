@@ -16,8 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bad-cop-list/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@bad-cop-list/utils": ["libs/utils/src/index.ts"]
+      "@cops-database/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@cops-database/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
