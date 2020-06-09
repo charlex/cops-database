@@ -20,6 +20,18 @@ Used to get a list of agencies from policeone.com
 
 ### Run the policeone-scraper
 
+Copy the config:
+
+```
+cp config/default.yml config/local.yml
+```
+
+Add the Airtable API key to local.yml
+
+https://airtable.com/account
+
+Then, run:
+
 ```
 yarn scrape
 ```
