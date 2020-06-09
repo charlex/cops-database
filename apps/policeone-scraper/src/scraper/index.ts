@@ -11,7 +11,7 @@ const base = new Airtable({ apiKey: config.get('airtable.secretToken') }).base(
   'appH0D66qIF4fVMtu'
 );
 
-type AirtableRecord = {
+type AirtableRecord_Agency = {
   fields: {
     name: string;
     type: string;
@@ -82,7 +82,7 @@ const scraper = async () => {
           '.Table-cell:nth-child(3) .Table-cellContent'
         );
         const agencyLink = await getTextFrom('a', 'href', true);
-        const mappedRecord: AirtableRecord = {
+        const mappedRecord: AirtableRecord_Agency = {
           fields: {
             name: agencyName || '',
             type: agencyType || '',
@@ -107,7 +107,7 @@ const scraper = async () => {
 
     // Airtable only allows ten rows to be created at a time:
     await chunk(data, 10).reduce<Promise<void>>(
-      async (acc: Promise<void>, chunkOfData: AirtableRecord[]) => {
+      async (acc: Promise<void>, chunkOfData: AirtableRecord_Agency[]) => {
         await acc;
         await sleep(1 / 4);
 
